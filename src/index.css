@@ -112,3 +112,68 @@ input[type='range']::-moz-range-thumb {
 input[type='range']::-moz-range-thumb:hover {
   transform: scale(1.1);
 }
+
+/* ── Print / Save as PDF ──────────────────────────────────── */
+
+@media print {
+  /* Ocultar elementos interactivos y de navegación */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Fondo blanco, sin padding extra */
+  html,
+  body,
+  #root {
+    height: auto;
+    background: white !important;
+  }
+
+  /* Quitar contenedor con padding lateral excesivo */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  /* Preservar colores de fondo en barras de riesgo */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Evitar cortes de página dentro de tarjetas */
+  .rounded-2xl,
+  .rounded-xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Eliminar sombras para impresión más limpia */
+  .shadow-card {
+    box-shadow: none !important;
+    border: 1px solid #e2e6ee !important;
+  }
+
+  /* Cabecera de impresión con branding mínimo */
+  body::before {
+    content: 'Mapa de Fugas de Agendamiento — Diagnóstico comercial';
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #7c8597;
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e2e6ee;
+  }
+
+  /* Pie de página con disclaimer abreviado */
+  body::after {
+    content: 'Diagnóstico orientativo. No sustituye una auditoría del proceso comercial.';
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: #aab1c0;
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #e2e6ee;
+  }
+}

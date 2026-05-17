@@ -114,7 +114,7 @@ function Shell({ children, wide }: ShellProps) {
   return (
     <div className="min-h-screen bg-ink-50">
       <div className="mx-auto max-w-2xl px-4 pb-28 pt-8 sm:px-6 sm:pt-12">
-        <header className="mb-6 flex items-center gap-2.5">
+        <header className="no-print mb-6 flex items-center gap-2.5">
           <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-ink-900 text-white">
             <svg
               viewBox="0 0 20 20"

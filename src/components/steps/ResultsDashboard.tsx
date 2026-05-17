@@ -220,9 +220,9 @@ export function ResultsDashboard({ result, answers, onRestart }: Props) {
       {/* ── Disclaimer ───────────────────────────────── */}
       <p className="px-1 text-xs text-ink-400">{disclaimer}</p>
 
-      {/* ── CTAs sticky ──────────────────────────────── */}
+      {/* ── CTAs sticky (hidden on print) ───────────── */}
       <div
-        className="sticky bottom-0 -mx-4 border-t border-ink-100 bg-ink-50/95 px-4 backdrop-blur sticky-cta-pad sm:relative sm:mx-0 sm:rounded-2xl sm:border sm:bg-white sm:py-5 sm:[padding-bottom:1.25rem]"
+        className="no-print sticky bottom-0 -mx-4 border-t border-ink-100 bg-ink-50/95 px-4 backdrop-blur sticky-cta-pad sm:relative sm:mx-0 sm:rounded-2xl sm:border sm:bg-white sm:py-5 sm:[padding-bottom:1.25rem]"
       >
         <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-end">
           <button
@@ -235,6 +235,13 @@ export function ResultsDashboard({ result, answers, onRestart }: Props) {
           <button
             type="button"
             onClick={() => setModalOpen(true)}
+            className="min-h-[44px] rounded-xl border border-ink-200 bg-white px-4 text-sm font-medium text-ink-700 transition hover:bg-ink-50 active:scale-[0.98] focus-ring sm:min-h-0 sm:py-2.5"
+          >
+            Recibir por email
+          </button>
+          <button
+            type="button"
+            onClick={() => window.print()}
             className="min-h-[44px] rounded-xl bg-accent-600 px-4 text-sm font-semibold text-white transition hover:bg-accent-700 active:scale-[0.98] focus-ring sm:min-h-0 sm:py-2.5"
           >
             Descargar mi mapa de fugas
